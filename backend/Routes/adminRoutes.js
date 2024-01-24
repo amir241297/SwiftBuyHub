@@ -77,20 +77,41 @@ adminRoutes.post('/add', async (req, res) => {
         let products = new ProductsModel(req.body)
         products.save()
         res.send(products)
-        console.log(products) 
-    } catch (err) { 
+        console.log(products)
+    } catch (err) {
         console.log("Error while adding products data", err)
         res.send("Error while adding products data", err)
     }
 })
 
-adminRoutes.patch('/update/:_id', (req, res) => {
-    console.log("Update Admin Products")
-    res.send("Update Admin Products")
+adminRoutes.patch('/update/:_id', async (req, res) => {
+
+    const updated_data = req.body
+    const _id = req.params._id
+
+    try {
+
+        await ProductsModel.findByIdAndUpdate({ _id }, updated_data)
+        res.send(`Data Updated SuccessFull`)
+        console.log(`Data Updated SuccessFull`)
+
+    } catch (err) {
+        res.send(`Error while Updating: ${err}`)
+        console.log(`Error while Updating: ${err}`)
+    }
 })
-adminRoutes.delete('/delete/:_id', (req, res) => {
-    console.log("Delete Admin Products")
-    res.send("Delete Admin Products")
+
+
+adminRoutes.delete('/delete/:_id', async(req, res) => {
+    const _id=req.params._id
+    try{
+        await ProductsModel.findByIdAndDelete({_id})
+        console.log(`Data Deleted!`)
+        res.send(`Data Deleted!`)
+    }catch(err){
+        console.log(`Error while Deleting products: ${err}`)
+        res.send(`Error while Deleting products: ${err}`)
+    }
 })
 
 
