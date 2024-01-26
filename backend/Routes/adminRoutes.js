@@ -21,7 +21,8 @@ adminRoutes.post('/login', async (req, res) => {
                     try {
                         const token = jwt.sign({ login: "successfull" }, 'authentication')
                         console.log("token", token)
-                        res.send({ token })
+                        const details = auth[0]
+                        res.send({ token, details })
                     } catch (err) {
                         res.send("error while generating token!")
                         console.log("error while generating token!")
@@ -52,8 +53,6 @@ adminRoutes.post('/register', (req, res) => {
                 res.send(register)
             }
         })
-
-
     } catch (err) {
         res.send("Error Admin Registration")
     }
@@ -102,13 +101,13 @@ adminRoutes.patch('/update/:_id', async (req, res) => {
 })
 
 
-adminRoutes.delete('/delete/:_id', async(req, res) => {
-    const _id=req.params._id
-    try{
-        await ProductsModel.findByIdAndDelete({_id})
+adminRoutes.delete('/delete/:_id', async (req, res) => {
+    const _id = req.params._id
+    try {
+        await ProductsModel.findByIdAndDelete({ _id })
         console.log(`Data Deleted!`)
         res.send(`Data Deleted!`)
-    }catch(err){
+    } catch (err) {
         console.log(`Error while Deleting products: ${err}`)
         res.send(`Error while Deleting products: ${err}`)
     }

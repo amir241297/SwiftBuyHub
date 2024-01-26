@@ -5,7 +5,7 @@ const productsSchema=mongoose.Schema({
     price:{type: Number, require:true},
     description:{type: String, require:true},
     brand:{type: String, require:true},
-    // gender:{type: String, require:true},
+    gender:{type: String, require:true},
     category:{type: String, require:true},
 })
 

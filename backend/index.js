@@ -1,6 +1,8 @@
 require('dotenv').config({path:'./configs/.env'})
 const express = require('express') 
 const app = express()
+const cors=require('cors')
+app.use(cors()) 
 const { connection }=require('./configs/db')
 
 const { adminRoutes } = require('./Routes/adminRoutes')
