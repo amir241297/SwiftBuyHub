@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+export const Navbar = () => {
   const {name}=useSelector((store)=>{
     return store
   })
@@ -22,5 +22,3 @@ const Navbar = () => {
     </div>
   )
 }
-
-export default Navbar

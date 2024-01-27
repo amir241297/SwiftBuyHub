@@ -4,7 +4,7 @@ import Navbar from './Components/Navbar'
 import { MdDelete } from "react-icons/md";
 import { MdUpdate } from "react-icons/md";
 import { FaIndianRupeeSign } from "react-icons/fa6";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateProductData } from '../redux/adminRedux/adminAction'
 
 
@@ -13,7 +13,11 @@ export const Update = () => {
     const { state } = useLocation()
     const [data, setData] = useState(state.data)
     const { brand, category, description, gender, price, url, _id } = data
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
+    const selector = useSelector((store) => {
+        return store
+    })
+    console.log(selector)
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -23,10 +27,11 @@ export const Update = () => {
         e.preventDefault()
         // console.log(data)
         dispatch(updateProductData(data))
+        if (selector.isUpdated) { alert("Upated Successfull!") }
     }
     return (
         <div className='border border-black h-screen'>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className='flex justify-around items-center w-full mt-24'>
                 <div className='border border-teal-600 text-left p-5 text-white leading rounded-md bg-slate-950 w-1/3'>
                     <img src={url} alt="" className='h-80 w-full' />

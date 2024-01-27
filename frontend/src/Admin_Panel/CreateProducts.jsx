@@ -33,7 +33,7 @@ export const CreateProducts = () => {
 
   return (
     <div className='border border-black h-screen'>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className='flex align-center justify-center border-emerald-500 mt-24'>
         <form action="" className='p-8 border border-teal-500 w-2/6 grid rounded-md'>
           <input type="text" required placeholder='URL' onChange={handleChange} name='url'

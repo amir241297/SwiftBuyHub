@@ -5,19 +5,25 @@ import { Login } from '../Login'
 import { CreateProducts } from '../CreateProducts'
 import { Register } from '../Register'
 import { Update } from '../Update'
+import AdminPrivateRoute from './AdminPrivateRoute'
 
-const AllRoutes = () => {
+export const AllRoutes = () => {
     return (
         <div>
             <Routes>
                 <Route path='/adminHome' element={<Home />} />
-                <Route path='/adminAddProducts' element={<CreateProducts />} />
+                <Route path='/adminAddProducts' element={
+                    <AdminPrivateRoute >
+                        <CreateProducts />
+                    </AdminPrivateRoute>
+
+                } />
+                <Route path='/adminUpdate' element={<AdminPrivateRoute ><Update /></AdminPrivateRoute>} />
                 <Route path='/adminLogin' element={<Login />} />
                 <Route path='/adminRegister' element={<Register />} />
-                <Route path='/adminUpdate' element={<Update />} />
+                <Route path='*' element={<h1>404 Invalid Page!</h1>} />
             </Routes>
         </div>
     )
 }
-
 export default AllRoutes

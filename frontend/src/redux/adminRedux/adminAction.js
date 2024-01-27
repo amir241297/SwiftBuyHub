@@ -60,6 +60,7 @@ export const deleteProductData = (_id) => (dispatch) => {
         .then((res) => {
             console.log(res)
             dispatch(deleteProductRequestAction())
+            dispatch(getProductData)
         })
         .catch((err) => {
             console.log(err)
