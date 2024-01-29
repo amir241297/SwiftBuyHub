@@ -1,12 +1,16 @@
 import React from 'react'
 import Carousel from '../Component/Carousel'
+import Slider from '../Component/Slider'
+import Accessories from '../Component/Accessories'
 
 const Home = () => {
   return (
-    <div className=' mt-16
+    <div className='mt-16
    
     '>
       <Carousel />
+      <Accessories />
+      {/* <Slider /> */}
     </div>
   )
 }

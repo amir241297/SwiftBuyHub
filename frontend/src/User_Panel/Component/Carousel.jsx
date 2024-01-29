@@ -20,7 +20,7 @@ const settings = {
 export default function Carousel() {
   const [slider, setSlider] = useState(null);
 
-  const top = useBreakpointValue({ base: '90%', md: '50%' });
+  const top = useBreakpointValue({ base: '90%', md: '32%' });
   const side = useBreakpointValue({ base: '30%', md: '40px' });
 
   const cards = [
