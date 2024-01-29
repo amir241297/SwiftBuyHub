@@ -8,21 +8,22 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [text_color, setText_color] = useState("white")
-  const [bg_color, setBg_color] = useState("black")
+  const [bg_color, setBg_color] = useState("blue-gray-900")
   const adminLogin = useSelector((store) => { return store.adminReducer.isLogin })
   const theme = useSelector((store) => { return store.userReducer.mode })
 
 
   useEffect(() => {
-    if (theme == "light") {
+    if (theme === "light") {
       setText_color("black")
       setBg_color("white")
     } else {
       setText_color("white")
       setBg_color("black")
     }
+    console.log(`text-${text_color} bg-${bg_color} h-screen`)
   },[theme])
-
+  
   if (adminLogin) {
     return (
       <div className="App border border-black bg-purple-400 h-screen">

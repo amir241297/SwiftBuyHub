@@ -4,11 +4,12 @@ import { BsBrightnessHigh } from "react-icons/bs";
 import { IoMoon } from "react-icons/io5";
 import { useDispatch } from "react-redux"
 import { setThemeMode } from '../../redux/userRedux/userAction';
+import { MdShoppingCart } from "react-icons/md";
 // moon--> false
 export const Navbar = () => {
   const [theme, setTheme] = useState(<BsBrightnessHigh />)
   const [toggle, setToggle] = useState(false)
-  const [text_color, setTextColor] = useState('')
+  const [text_color, setTextColor] = useState('white')
   const [bgColor, setBgColor] = useState('')
   const dispatch = useDispatch()
 
@@ -19,55 +20,64 @@ export const Navbar = () => {
     // console.log(toggle)
   };
 
-  if(toggle){
+  if (toggle) {
 
-  }else{
+  } else {
 
   }
 
-  // useEffect(()=>{
-
-  // },[toggle])
+  useEffect(() => {
+    setBgColor()
+    setTextColor()
+  }, [toggle])
 
 
   return (
-    <div className='flex h-20 border-2 border-red-500 fixed top-0 w-full z-1000  bg-gray-500 text-white
-    sm:
-    md:
-    lg:
-    2xl:
+    <div className='flex h-16 fixed top-0 w-full z-10  bg-gray-900 text-white overflow-hidden
+    sm:border-2 sm:border-red-500
+    md:border-2 md:border-green-500
+    lg:border-2 lg:border-yellow-500
+    xl:border-2 2xl:border-blue-500
     '>
-      <div className='border w-1/5 '>
-        <img src={'/logo.png'} alt="companylogo" className='h-full 
+      <div className='w-1/5 '>
+        <NavLink to='/' >
+          <img src={'/logo.png'} alt="companylogo" className='h-full 
         2xl:ml-7 
         ' />
+        </NavLink>
       </div>
-      <div className='w-3/5 font-bold text-2xl'>
-        <nav className='border flex justify-between items-center h-full'>
+      <div className='w-3/5
+      sm:border-2 sm:border-red-500 sm:font-semibold
+      md:border-2 md:border-green-500 md:text-teal
+      lg:border-2 lg:border-yellow-500 
+      xl:border-2 2xl:border-blue-500 xl:font-bold text-md'
+      >
+        <nav className='flex justify-between items-center h-full'>
 
-          <NavLink to='/' className='px-4 py-2 hover:bg-teal-500 transition duration-300 rounded-full'>
-            Home
-          </NavLink>
+          <input type="search" placeholder='Search'
+            className='bg-gray-300 border border-none w-2/4 rounded-3xl p-3 h-3/5  text-sm hover:border-none text-gray-900' />
 
-          <NavLink to='/products' className='px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
+
+          {/* <NavLink to='/products' className='px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
             Products
-          </NavLink>
-
-          <NavLink to='/cart' className='px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
-            Cart
-          </NavLink>
-
+          </NavLink> */}
           <NavLink to='/login' className='px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
             Login
           </NavLink>
 
+          <NavLink to='/cart' className='px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full flex items-center'>
+            <MdShoppingCart />
+            <p className='ml-1'>Cart</p>
+          </NavLink>
+
+
         </nav>
       </div>
-      <div className='border w-1/5 flex items-center justify-evenly'>
-        <button onClick={toggleTheme} className='text-2xl'>
+      <div className='w-1/5 flex items-center justify-evenly'>
+        <button onClick={toggleTheme} className='text-2xl px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
           {theme}
         </button>
-        <div className='border h-11 w-10 rounded-full'>
+        <div className='h-11 w-10 rounded-full'>
           <img src={'/profile_image.jpg'} alt="profile image" className='h-full w-full rounded-full' />
         </div>
       </div>
