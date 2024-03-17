@@ -7,8 +7,8 @@ import '../Loader.css'
 
 export const Home = () => {
     const dispatch = useDispatch()
-    const { products, isLoading, isError } = useSelector((store) => { return store })
-    console.log("useSelector",isLoading,isError)
+    const { products, isLoading, isError } = useSelector((store) => { return store.adminReducer })
+    // console.log("useSelector",isLoading,isError,products)
 
     useEffect(() => {
         dispatch(getProductData)

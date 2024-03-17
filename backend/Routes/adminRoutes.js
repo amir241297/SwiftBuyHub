@@ -54,7 +54,7 @@ adminRoutes.post('/register', (req, res) => {
             }
         })
     } catch (err) {
-        res.send("Error Admin Registration")
+        res.send("Error Admin Registration") 
     }
 })
 

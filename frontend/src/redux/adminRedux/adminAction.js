@@ -93,7 +93,7 @@ export const getProductData = (dispatch) => {
     axios.get('http://localhost:8080/admin')
         .then((res) => {
             dispatch(getProductAction(res.data))
-            // console.log(res.data)
+            // console.log('------------',res.data)
         })
         .catch((err) => {
             dispatch(productRequestAction())

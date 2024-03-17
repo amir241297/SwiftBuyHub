@@ -16,12 +16,14 @@ export const AllRoutes = () => {
                     <AdminPrivateRoute >
                         <CreateProducts />
                     </AdminPrivateRoute>
-
                 } />
                 <Route path='/adminUpdate' element={<AdminPrivateRoute ><Update /></AdminPrivateRoute>} />
                 <Route path='/adminLogin' element={<Login />} />
                 <Route path='/adminRegister' element={<Register />} />
                 <Route path='*' element={<h1>404 Invalid Page!</h1>} />
+
+
+                <Route path=''/>
             </Routes>
         </div>
     )

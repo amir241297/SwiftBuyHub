@@ -13,20 +13,28 @@ const Products = (props) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { isAuth, isDeleted } = useSelector((state) => {
-        return state
+        return state.adminReducer
     })
-    console.log(isAuth)
+    // console.log(isAuth)
 
 
     const handleEditProduct = () => {
         // dispatch(updateProductData(_id))
-        navigate('/adminUpdate', { state: props })
+        // if(!isAuth){
+            // navigate("/adminUpdate")
+        // }
+        // else{
+            navigate('/adminUpdate', { state: props.data })
+        // }
+        
+        console.log(props)
         // dispatch(updateProductRequestAction(props))
 
     }
     const handleDeleteProduct = () => {
         if (!isAuth) {
             toast.error("Request denied. \n Please Login!")
+            console.log("NA")
             navigate("/adminlogin")
         } else {
             dispatch(deleteProductData(_id))

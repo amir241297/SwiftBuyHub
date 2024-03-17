@@ -38,9 +38,12 @@ function App() {
     );
   } else {
     return (
-      <div className={`text-${text_color} bg-${bg_color} h-screen`}>
+      <div className=
+      {`text-${text_color} bg-${bg_color} h-screen`}
+      >
         <UserNavbar />
         <UserAllRoutes />
+        <AdminAllRoutes />
       </div>
     )
   }

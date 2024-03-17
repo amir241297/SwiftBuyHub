@@ -11,13 +11,14 @@ import { updateProductData } from '../redux/adminRedux/adminAction'
 
 export const Update = () => {
     const { state } = useLocation()
-    const [data, setData] = useState(state.data)
+    const [data, setData] = useState(state)
     const { brand, category, description, gender, price, url, _id } = data
+
     const dispatch = useDispatch()
     const selector = useSelector((store) => {
         return store
     })
-    console.log(selector)
+    // console.log('selector',state)
 
     const handleChange = (e) => {
         const { name, value } = e.target

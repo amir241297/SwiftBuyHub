@@ -8,7 +8,7 @@ import Register from '../Pages/Register'
 
 export const AllRoutes = () => {
     return (
-        <div>
+        <div> 
             <Routes>
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/products/:id' element={<Products />}></Route>

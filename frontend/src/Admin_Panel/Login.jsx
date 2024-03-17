@@ -14,9 +14,9 @@ export const Login = () => {
   const dispatch = useDispatch()
   const navigate=useNavigate()
   const {isAuth}=useSelector((state)=>{
-    return state
+    return state.adminReducer
   })
-
+console.log(isAuth)
   if(isAuth){
     navigate("/adminHome")
   }

@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const AdminPrivateRoute = ({ children }) => {
-  const isAuth = useSelector((state) => state.isAuth);
-
+  const {isAuth} = useSelector((state) => state.adminReducer);
+// console.log('-----',isAuth)
   if (!isAuth) {
     return <Navigate to={"/adminlogin"} />;
   }

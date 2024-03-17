@@ -14,6 +14,7 @@ const initialState = {
 }
 
 export const adminReducer = (state = initialState, { type, payload }) => {
+    // console.log(`${type}: ${payload}`)
     switch (type) {
         case PRODUCT_REQUEST: return ({ ...state, isLoading: true })
         case PRODUCT_FAILURE: return ({ ...state, isError: true, isLoading:false })

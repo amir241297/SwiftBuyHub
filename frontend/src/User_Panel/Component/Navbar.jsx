@@ -20,11 +20,11 @@ export const Navbar = () => {
     // console.log(toggle)
   };
 
-  if (toggle) {
+  // if (toggle) {
 
-  } else {
+  // } else {
 
-  }
+  // }
 
   useEffect(() => {
     setBgColor()

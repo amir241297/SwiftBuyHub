@@ -7,13 +7,13 @@ const { connection }=require('./configs/db')
 
 const { adminRoutes } = require('./Routes/adminRoutes')
 
-app.use(express.json())
-app.use("/admin", adminRoutes) 
+app.use(express.json())  
+app.use("/admin", adminRoutes)    
 
-
+ 
 app.get("/", (req, res) => {
     res.send("Home")
-    console.log("Home")
+    console.log("Home")  
 })
 
 app.listen(process.env.PORT, async() => {
@@ -23,5 +23,5 @@ app.listen(process.env.PORT, async() => {
     }catch(err){
         console.log("Server Error: ", err)
     }
-    console.log(`Server is Running Port: ${process.env.PORT}`)
-})
+    console.log(`Server is Running Port: ${process.env.PORT}`) 
+})  
