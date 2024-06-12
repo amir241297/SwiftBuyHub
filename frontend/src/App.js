@@ -39,7 +39,7 @@ function App() {
   } else {
     return (
       <div className=
-      {`text-${text_color} bg-${bg_color} h-screen`}
+      {`bg-${bg_color} text-${text_color} h-screen border border-green-900`}
       >
         <UserNavbar />
         <UserAllRoutes />

@@ -57,54 +57,56 @@ export default function Carousel() {
   ];
 
   return (
-    <Box position="relative" height="600px" width="full" overflow="hidden">
-      <IconButton
-        aria-label="left-arrow"
-        variant="ghost"
-        position="absolute"
-        left={side}
-        top={top}
-        transform="translate(0%, -50%)"
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}
-      >
-        <BiLeftArrowAlt size="40px" />
-      </IconButton>
-      <IconButton
-        aria-label="right-arrow"
-        variant="ghost"
-        position="absolute"
-        right={side}
-        top={top}
-        transform="translate(0%, -50%)"
-        zIndex={2}
-        onClick={() => slider?.slickNext()}
-      >
-        <BiRightArrowAlt size="40px" />
-      </IconButton>
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((card, index) => (
-          <Box
-            key={index}
-            height="3xl"
-            position="relative"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            backgroundImage={`url(${card.image})`}
-            style={{ backgroundSize: '100%' }}           >
-            {/* content div */}
-            <Container size="container.lg" height="600px" position="relative" > 
-              <Stack spacing={6} w="full" maxW="lg" position="absolute" top="50%" transform="translate(0, -50%)" >
-                <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>{card.title}</Heading>
-                <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
-                  {card.text}
-                </Text>
-              </Stack>
-            </Container>
-          </Box>
-        ))}
-      </Slider>
-    </Box>
+      <Box position="relative" height="600px" width="full" overflow="hidden">
+        <IconButton
+          aria-label="left-arrow"
+          variant="ghost"
+          position="absolute"
+          left={side}
+          top={top}
+          transform="translate(0%, -50%)"
+          zIndex={2}
+          onClick={() => slider?.slickPrev()}
+        >
+          <BiLeftArrowAlt size="40px" />
+        </IconButton>
+        <IconButton
+          aria-label="right-arrow"
+          variant="ghost"
+          position="absolute"
+          right={side}
+          top={top}
+          transform="translate(0%, -50%)"
+          zIndex={2}
+          onClick={() => slider?.slickNext()}
+        >
+          <BiRightArrowAlt size="40px" />
+        </IconButton>
+        <Slider {...settings} ref={(slider) => setSlider(slider)}>
+          {cards.map((card, index) => (
+            <Box
+              key={index}
+              height="s"
+              position="relative"
+              backgroundPosition="center"
+              backgroundRepeat="no-repeat"
+              backgroundSize="cover"
+              backgroundImage={`url(${card.image})`}
+              // style={{ backgroundSize: '100%' }}          
+              style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+               >
+              {/* content div */}
+              <Container size="container.lg" height="600px" position="relative" >
+                <Stack spacing={6} w="full" maxW="lg" position="absolute" top="50%" transform="translate(0, -50%)" >
+                  <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>{card.title}</Heading>
+                  <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
+                    {card.text}
+                  </Text>
+                </Stack>
+              </Container>
+            </Box>
+          ))}
+        </Slider>
+      </Box>
   );
 }

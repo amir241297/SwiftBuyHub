@@ -5,6 +5,8 @@ import { IoMoon } from "react-icons/io5";
 import { useDispatch } from "react-redux"
 import { setThemeMode } from '../../redux/userRedux/userAction';
 import { MdShoppingCart } from "react-icons/md";
+import { IoIosSearch } from "react-icons/io";
+
 // moon--> false
 export const Navbar = () => {
   const [theme, setTheme] = useState(<BsBrightnessHigh />)
@@ -39,10 +41,9 @@ export const Navbar = () => {
     lg:border-2 lg:border-yellow-500
     xl:border-2 2xl:border-blue-500
     '>
-      <div className='w-1/5 '>
+      <div className='w-1/5'>
         <NavLink to='/' >
-          <img src={'/logo.png'} alt="companylogo" className='h-full 
-        2xl:ml-7 
+          <img src={'/logo.png'} alt="companylogo" className='h-full 2xl:ml-7 ml-3 
         ' />
         </NavLink>
       </div>
@@ -54,9 +55,19 @@ export const Navbar = () => {
       >
         <nav className='flex justify-between items-center h-full'>
 
-          <input type="search" placeholder='Search'
-            className='bg-gray-300 border border-none w-2/4 rounded-3xl p-3 h-3/5  text-sm hover:border-none text-gray-900' />
+          <div className='bg-gray-300 flex border border-none w-2/4 rounded-3xl h-3/5  hover:border-none text-gray-900' >
+            <input
+              type="search"
+              placeholder="Search"
+              className="bg-gray-300 border border-none pl-2 focus:border-transparent w-10/12 h-full text-sm ml-4"
+            />
 
+            <div className='w-10 flex items-center justify-center'>
+
+              <IoIosSearch className='text-xl cursor-pointer' />
+            </div>
+
+          </div>
 
           {/* <NavLink to='/products' className='px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
             Products
@@ -77,9 +88,9 @@ export const Navbar = () => {
         <button onClick={toggleTheme} className='text-2xl px-4 py-2 hover:bg-teal-600 transition duration-300 rounded-full'>
           {theme}
         </button>
-        <div className='h-11 w-10 rounded-full'>
+        {/* <div className='h-11 w-10 rounded-full'>
           <img src={'/profile_image.jpg'} alt="profile image" className='h-full w-full rounded-full' />
-        </div>
+        </div> */}
       </div>
     </div>
 
